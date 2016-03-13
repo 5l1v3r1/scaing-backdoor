@@ -15,7 +15,9 @@ from util import operation
 def start(param):
 	print "scaninng now....."
 	ls = operation.readRetList("dictionaries/rule.txt")#TODO 读取方式升级为用户自定义
-	cmp(param, ls)	
+	cmp(param, ls)
+	
+	print "result.txt 结果已保存到result目录"	
 
 #查找木马
 def cmp(dir, features):
@@ -24,10 +26,11 @@ def cmp(dir, features):
 	for filepath in file_list:
 		if operation.findListStr(filepath, features):#TODO 根据查找到的特征数量定义优先级
 			suspicious.append(filepath + "\n")
-	operation.writeList("result/result.txt", suspicious,'w')#TODO 写入方式升级为用户自定义
-	print "result.txt 已保存到scan/result目录"
-		
-
+	operation.writeList("result/result.txt", suspicious,'w')#TODO 写入方式升级为用户自定义路径
+	
+#检测服务器系统文件	
+def chkSysFile():
+	
 
 			
 
